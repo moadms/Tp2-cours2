@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Configuration IoC par XML : Déclaration des beans et injection par setter -->
+    <bean id="dao" class="dao.DaoImpl" />
+    <bean id="dao2" class="dao.DaoImpl2" />
+
+    <bean id="metier" class="metier.MetierImpl">
+        <!-- Injection de dépendance via la méthode setDao(IDao dao) -->
+        <property name="dao" ref="dao" />
+    </bean>
+
+</beans>
